@@ -1,0 +1,24 @@
+{
+    "name": "masterkey/payment",
+    "description": "Biblioteca para envio de pagamentos para o PagSeguro utilizando a API de checkout Transparente",
+    "keywords": ["PagSeguro", "Checkout Transparente", "API"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matheus Lopes Santos",
+            "email": "fale_com_lopez@hotmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "5.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Masterkey\\Payment\\": "src/"
+        }
+    }
+}
