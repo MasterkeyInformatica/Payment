@@ -12,4 +12,4 @@ before_script:
 
 script:
     - mkdir -p build/logs
-    - vendor/bin/phpunit phpunit.xml --verbose
+    - vendor/phpunit/phpunit/phpunit -c phpunit.xml --verbose
