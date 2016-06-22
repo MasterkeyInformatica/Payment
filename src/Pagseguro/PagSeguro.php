@@ -3,7 +3,6 @@
     use Exception;
     use Masterkey\Payment\HttpConnection;
     use Masterkey\Payment\XmlParser;
-    use Masterkey\Payment\PagSeguro\Contracts\Arrayable;
 
     /**
      * PagSeguro
@@ -104,13 +103,13 @@
         /**
          * Realiza uma requisição de pagamento
          *
-         * @param   Arrayable  $paymentMethod
-         * @param   array $params
+         * @param   array  $paymentMethod
+         * @param   array  $params
          * @return  array
          */
-        public function doPayment(Arrayable $paymentMethod)
+        public function doPayment($paymentMethod)
         {
-            $params = $paymentMethod->toArray();
+            $params = $paymentMethod;
             $params += $this->pagseguroData->getCredentials();
 
             $params['paymentMode']  = 'default';
