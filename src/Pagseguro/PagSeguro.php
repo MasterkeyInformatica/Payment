@@ -106,14 +106,24 @@
          * @param   array  $paymentMethod
          * @param   array  $params
          * @return  array
+         * @throws  Exception
          */
-        public function doPayment($paymentMethod)
+        public function doPayment($paymentMethod = null)
         {
+            if(empty($paymentMethod) || !is_array($paymentMethod)) {
+                throw new Exception("Os dados do pedido são obrigatórios para continuar", 1);
+            }
+
             $params = $paymentMethod;
             $params += $this->pagseguroData->getCredentials();
 
             $params['paymentMode']  = 'default';
             $params['currency']     = 'BRL';
+
+            // Realiza a sanitização da requisição de pagamento
+            $sanitize   = new Sanitize($params);
+            $params     = $sanitize->sanitizeParams()
+                                   ->getPaymentParams();
 
             $httpConnection = new HttpConnection();
             $httpConnection->post($this->pagseguroData->getTransactionsURL(), $params);
@@ -125,7 +135,11 @@
                 return $erro->getErrors();
             }
 
-            return $xmlArray;
+            if(isset($xmlArray['transaction'])) {
+                return $xmlArray;
+            } else {
+                throw new Exception("Ocorreu um erro ao realizar o envio do Pedido.", 1);
+            }
         }
 
         /**

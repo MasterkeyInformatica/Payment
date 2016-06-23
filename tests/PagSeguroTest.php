@@ -52,4 +52,14 @@
             $pagseguro = new PagSeguro($this->sandbox, $this->sandboxData, $this->productionData);
             $pagseguro->printSessionId();
         }
+
+        /**
+         * @expectedException   Exception
+         * @expectedExceptionMessage    Os dados do pedido são obrigatórios para continuar
+         */
+        public function testDoPaymentException()
+        {
+            $pagseguro = new PagSeguro($this->sandbox, $this->sandboxData, $this->productionData);
+            $pagseguro->doPayment();
+        }
     }
