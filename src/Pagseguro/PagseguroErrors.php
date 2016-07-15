@@ -8,8 +8,8 @@
      * Classe que gerencia os erros gerados pela API do Pagseguro
      *
      * @author  Matheus Lopes Santos <fale_com_lopez@hotmail.com>
-     * @version 1.0.0
-     * @since   21/06/2016
+     * @version 1.1.0
+     * @since   15/07/2016
      */
     class PagseguroErrors
     {
@@ -40,6 +40,7 @@
             10003   => 'Código de segurança inválido',
             10004   => 'CVV é obrigatório',
             10006   => 'campo de segurança com tamanho inválido',
+            30400   => 'Dados do cartão inválidos',
             53004   => 'Quantidade inválida de items',
             53005   => 'A moeda é necessária',
             53006   => 'Nome de moeda inválido',
