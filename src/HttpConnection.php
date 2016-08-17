@@ -1,5 +1,7 @@
 <?php namespace Masterkey\Payment;
 
+    use Exception;
+
     /**
      * HttpConnection
      *
@@ -7,8 +9,8 @@
      *
      * @author  Matheus Lopes Santos <fale_com_lopez@hotmail.com>
      * @author  Cassio Almeida <cassio.almeidaa@gmail.com>
-     * @version 2.0.0
-     * @since   15/06/2016
+     * @version 2.0.1
+     * @since   17/08/2016
      */
     class HttpConnection
     {
