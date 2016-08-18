@@ -126,6 +126,6 @@
         private function clearString($key)
         {
             $toRemove = ['.', '-', '/', '(', ')'];
-            $this->paymentRequest[$key] = (int) str_replace($toRemove, '', $this->paymentRequest[$key]);
+            $this->paymentRequest[$key] = str_replace($toRemove, '', $this->paymentRequest[$key]);
         }
     }
